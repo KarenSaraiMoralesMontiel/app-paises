@@ -12,7 +12,7 @@ const Weather = ({capital}) => {
         .get(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${capital}`)
         .then((response) => {
             const clime = response.data.current
-            console.log(response)
+            console.log(response.data)
             setDataWeather({
                 temperature : clime.temperature,
                 weather_icons: clime.weather_icons,
