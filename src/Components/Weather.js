@@ -8,9 +8,8 @@ const Weather = ({capital}) => {
     const apiKey = process.env.REACT_APP_API_KEY
 
     useEffect(()=>{
-        console.log(`http://api.weatherstack.com/current?access_key=${apiKey}&query=$New York`)
         axios
-        .get(`http://api.weatherstack.com/current?access_key=${apiKey}&query=$New York`)
+        .get(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${capital}`)
         .then((response) => {
             const clime = response.data.current
             console.log(response)
@@ -23,7 +22,7 @@ const Weather = ({capital}) => {
         }).catch(error =>{
             console.log(error)
         })
-    },[capital])
+    },[apiKey, capital])
     return(
         <div>
             <h2>Weather</h2>
